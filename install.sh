@@ -39,7 +39,7 @@ fi
 if [ "$1" == "-d" ];then
 	DIR="$DEFAULT"
 else
-	echo "Please enter the path for installation: "
+	echo "Please enter the path for installation (or informe -d for default folder [$DEFAULT]): "
 	read DIR
 	if [ "$DIR" == "-d" ];then
 		DIR="$DEFAULT"

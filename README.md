@@ -30,6 +30,8 @@ sudo bash -c  "$(wget -qO- https://git.io/JqrsA)"
 ```
 and press ENTER.
 
+Enter a directory for installing the scripts or use the ```-d``` option for the standard installation (```/opt/ShellScripts```).
+
 ### Maual install
 
 I place these scripts inside ```/opt/Shellscripts``` and export to $PATH.
