@@ -3,6 +3,8 @@
 C_BG="\033[1;41m"
 C_BG_i="\033[1;44m"
 C_C="\033[0m"
+DEFAULT="/opt/ShellScripts"
+DIR=""
 
 _print(){
 	if [ $1 = "i" ]; then
@@ -13,36 +15,53 @@ _print(){
 	printf "${color}$2${C_C}\n"
 }
 
+end(){
+	printf "\n\n"
+	exit
+}
+
 checkLastCommand() {
 	if [ $? -eq 0 ]; then
 		_print "i" "$1 success"
 	else
 		_print "w" "$1 fail, closing program"
-		exit -1 
+		end
 	fi
  }
 
-
+printf "\n\n"
 # Check if root
 if [ "$EUID" -ne 0 ]; then
 	_print "w" "Please run as root"
-	exit
+	end
 fi
 
-_print "i" "Verify ShellScripts dir..."
-if [ ! -d "/opt/ShellScripts" ]; then
-	_print "w" "Directory not found"
-	_print "i" "Creating ShellScripts dir into /opt"
-	make "/opt/ShellScripts"
+if [ "$1" == "-d" ];then
+	DIR="$DEFAULT"
+else
+	echo "Please enter the path for installation: "
+	read DIR
+	if [ "$DIR" == "-d" ];then
+		DIR="$DEFAULT"
+	fi
 fi
 
-_print "i" "Cloning repository into ShellScripts/"
+_print "i" "Verify $DIR dir..."
+if [ -d "$DIR" ]; then
+	_print "w" "Directory found"
+	_print "i" "Please delete the directory informed or inform another."
+	end
+fi
 
-git clone https://github.com/lpg2709/my-shellscritps.git /opt/ShellScripts
+_print "i" "Cloning repository into $DIR"
+
+git clone https://github.com/lpg2709/my-shellscritps.git $DIR
 checkLastCommand "Clone repository"
 
-_print "i" "Modify ~/.bashrc"
-echo "export PATH=/opt/ShellScripts/:\$PATH" >> ~/.bashrc
-checkLastCommand "Export path to ~/.bashrc"
+_print "i" "Clean folder $DIR"
+rm -rf $DIR/.git $DIR/README.md $DIR/install.sh
 
-_print "i" "Instalation finished"
+_print "i" "\nInstallation finished. Append to your ~/.bashrc"
+printf "\n\033[1;36m  export PATH=$DIR:\$PATH${C_C}"
+end
+
