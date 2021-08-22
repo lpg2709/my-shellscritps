@@ -2,24 +2,6 @@
 
 Collection of script that I use to help my laziness to take my hand off the keyboard.
 
-## Scripts inside
-What's in the project is and what it does.
-
-##### $ bluefilter.sh
-Decreases the color temperature.
-
-#### $ color.sh
-Show the color values accepted by the ASCII code
-
-#### $ mic_stats.sh
-Check whether the microphone is muted or not.
-
-#### $ mictest.sh
-Loopback to output the input audio.
-
-#### $ mic_toggle.sh
-Mute and unmute microphone.
-
 ## Configure
 
 ### Install
@@ -49,3 +31,21 @@ To run any script, after exporting the folder in ~ / .bashrc:
 ```bash
 ./color.sh
 ```
+
+## Scripts inside
+What's in the project is and what it does.
+
+##### $ bluefilter.sh
+Decreases the color temperature.
+
+#### $ color.sh
+Show the color values accepted by the ASCII code
+
+#### $ mic_stats.sh
+Check whether the microphone is muted or not.
+
+#### $ mictest.sh
+Loopback to output the input audio.
+
+#### $ mic_toggle.sh
+Mute and unmute microphone.
