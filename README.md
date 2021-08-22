@@ -1,9 +1,9 @@
 # My Shellscritps
 
-Collection of script that you use to help my laziness to take my hand off the keyboard.
+Collection of script that I use to help my laziness to take my hand off the keyboard.
 
 ## Scripts inside
-What's in the project is what it does.
+What's in the project is and what it does.
 
 ##### $ bluefilter.sh
 Decreases the color temperature.
