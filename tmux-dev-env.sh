@@ -9,7 +9,7 @@ GIT_WINDOW=0
 
 help(){
 cat << EOF
-Usage: tmux-dev.sh [options]
+Usage: tmux-dev-env.sh [options]
 
 OPTIONS:
   --help    Show this message.
