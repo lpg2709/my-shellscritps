@@ -2,7 +2,7 @@
 
 PWD=$(pwd)
 DIR=$(echo "${PWD##*/}")
-S_NAME=$DIR
+S_NAME=$(echo "${DIR// /}")
 
 # Options
 GIT_WINDOW=0
