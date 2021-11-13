@@ -3,7 +3,8 @@
 C_BG="\033[1;41m"
 C_BG_i="\033[1;44m"
 C_C="\033[0m"
-DEFAULT="/opt/ShellScripts"
+FOLDER_NAME="MyShellScripts"
+DEFAULT="/opt/$FOLDER_NAME"
 DIR=""
 
 _print(){
@@ -36,14 +37,25 @@ if [ "$EUID" -ne 0 ]; then
 	end
 fi
 
-if [ "$1" == "-d" ];then
-	DIR="$DEFAULT"
-else
+read -r -d "" USAGE <<- EOM
+Usage: sudo ./install.sh [OPTIONS]
+
+OPTIONS:
+  -h            This help screen.
+  -c            Configura the path to install.
+EOM
+
+if [ "$1" == "-h" ]; then
+	echo "$USAGE"
+	exit 0
+elif [ "$1" == "-c" ];then
 	echo "Please enter the path for installation (or informe -d for default folder [$DEFAULT]): "
 	read DIR
 	if [ "$DIR" == "-d" ];then
 		DIR="$DEFAULT"
 	fi
+else
+	DIR="$DEFAULT"
 fi
 
 _print "i" "Verify $DIR dir..."
