@@ -3,7 +3,7 @@
 C_BG="\033[1;41m"
 C_BG_i="\033[1;44m"
 C_C="\033[0m"
-FOLDER_NAME="MyShellScripts"
+FOLDER_NAME="ShellScripts"
 DEFAULT="/opt/$FOLDER_NAME"
 DIR=""
 
